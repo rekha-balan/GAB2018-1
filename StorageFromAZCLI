@@ -1,0 +1,24 @@
+#!/bin/bash
+# A simple Azure Storage example script
+
+#export AZURE_STORAGE_ACCOUNT=<storage_account_name>
+#export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+
+export container_name=gabc2018sto
+export blob_name=gabc2018stoblob
+#export file_to_upload=<file_to_upload>
+#export destination_file=<destination_file>
+
+echo "Creating the container..."
+az storage container create --name $container_name
+
+#echo "Uploading the file..."
+#az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+
+echo "Listing the blobs..."
+az storage blob list --container-name $container_name --output table
+
+#echo "Downloading the file..."
+#az storage blob download --container-name $container_name --name $blob_name --file $destination_file --output table
+
+echo "Done"
